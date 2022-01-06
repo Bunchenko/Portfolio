@@ -9,9 +9,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     background: url(assets/img/bg.jpg);
     background-repeat: no-repeat;
+    background-position: center 0;
     background-color: black;
 }
 
@@ -26,6 +26,12 @@ header {
 
 .logo {
     margin-left: 20px;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .navigation-list {
@@ -110,13 +116,14 @@ header {
 
 .skills-title::before {
     content: "";
-        display: block;
-        width: 274px;
-        height: 2px;
-        background: #BDAE82;
-        left: 0;
-        top: 50%;
-        position: absolute;
+    display: block;
+    width: 274px;
+    height: 2px;
+    background: #BDAE82;
+    left: 0;
+    top: 50%;
+    position: absolute;
+    overflow-x: hidden
 }
 
 .skills-title {
@@ -136,13 +143,14 @@ header {
 
 .skills-title::after {
     content: "";
-        display: block;
-        width: 274px;
-        height: 2px;
-        background: #BDAE82;
-        right: 0;
-        top: 50%;
-        position: absolute;
+    display: block;
+    width: 274px;
+    height: 2px;
+    background: #BDAE82;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    overflow-x: hidden
 }
 
 .skills-items{
@@ -151,6 +159,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: 0 20px;
 }
 
@@ -166,6 +175,11 @@ header {
 .skills-items-item-image {
     width: 62px;
     height: 50px;
+    transition: 0.3s;
+}
+.skills-items-item-image:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .skills-items-item-paragraph {
