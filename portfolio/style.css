@@ -19,9 +19,16 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 1440px;
     height: 90px;
     background-color: transparent;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .logo {
@@ -70,11 +77,11 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-right: 20px;
 }
 
 .navigation-container-switch {
     height: 50px;
-    width: 70px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -129,8 +136,7 @@ header {
 .hero {
     margin: 160px 860px 330px 80px;
     background-color: transparent;
-    width: 500px;
-    height: 330px;
+
 }
 
 .hero-title {
@@ -140,7 +146,6 @@ header {
     font-size: 60px;
     line-height: 120px;
     color: #FFFFFF;
-    width: 500px;
     margin-bottom: 10px;
 }
 
@@ -151,7 +156,6 @@ header {
     font-size: 20px;
     line-height: 40px;
     color: #FFFFFF;
-    width: 470px;
 }
 .hero-button {
     height: 55px;
@@ -177,7 +181,6 @@ header {
 }
 
 .skills {
-    width: 1440px;
     height: 482px;
     display: flex;
     flex-direction: column;
@@ -200,7 +203,7 @@ header {
 .skills-title {
     width: 700px;
     padding: 0 20px;
-    margin: 100px 370px 60px 370px;
+    margin: 100px auto 60px auto;
     font-family: Merriweather;
     font-style: normal;
     font-weight: bold;
@@ -225,12 +228,11 @@ header {
 
 .skills-items{
     height: 242px;
-    width: 1400px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 20px;
+    gap: 40px;
 }
 
 .skills-items-item {
@@ -260,11 +262,11 @@ header {
     line-height: 36px;
     text-align: center;
     color: #FFFFFF;
-    margin: 0 20px 8px 20px;
+    margin: 0 auto 8px auto;
 }
 
 .skills-items-item-title {
-    margin: 50px 20px 20px 20px;
+    margin: 50px auto 20px auto;
     font-family: Inter;
     font-style: normal;
     font-weight: bold;
@@ -275,10 +277,10 @@ header {
 }
 .portfolio {
     height: 1500px;
-    width: 1440px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .portfolio-title::before {
@@ -294,7 +296,7 @@ header {
 }
 
 .portfolio-title {
-    margin: 100px 370px 60px 370px;
+    margin: 100px auto 60px auto;
     width: 700px;
     font-family: Merriweather;
     font-style: normal;
@@ -319,13 +321,14 @@ header {
 }
 
 .portfolio-buttons {
-    margin: 0 273px 60px 272px;
-    width: 895px;
+    margin: 0 auto 60px auto;
     height: 55px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .portfolio-buttons-button {
@@ -358,12 +361,10 @@ header {
 }
 
 .portfolio-images {
-    margin: 0 20px;
-    width: 1400px;
-    height: 1145px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 25px;
 }
 
@@ -373,7 +374,6 @@ header {
 }
 
 .video {
-    width: 1440px;
     height: 945px;
 }
 
@@ -390,7 +390,7 @@ header {
 }
 
 .video-title {
-    margin: 100px 370px 60px 370px;
+    margin: 100px auto 60px auto;
     width: 700px;
     height: 80px;
     font-family: Merriweather;
@@ -416,10 +416,11 @@ header {
 }
 
 .video-player {
-    margin: 0 20px;
-    height: 750px;
-    width: 1400px;
     position: relative;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .video-player-image {
@@ -451,7 +452,6 @@ header {
 }
 
 .price {
-    width: 1440px;
     height: 845px;
     display: flex;
     flex-direction: column;
@@ -481,7 +481,7 @@ header {
     text-align: center;
     color: #BDAE82;
     position: relative;
-    margin: 100px 370px 60px 370px;
+    margin: 100px auto 60px auto;
 }
 
 .price-title::after {
@@ -497,13 +497,14 @@ header {
 }
 
 .price-container {
-    width: 1400px;
     height: 505px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 20px 100px 20px;
+    margin: 0 auto 100px auto;
 }
 
 .price-container-item {
@@ -580,15 +581,12 @@ header {
     background-repeat: no-repeat;
     background-size: auto 700px;
     background-position: center center;
-    width: 1440px;
     height: 700px;
     display: flex;
 }
 
 .contacts-container {
-    width: 450px;
-    height: 445px;
-    margin: 60px 20px 195px 970px;
+    margin: 60px auto 195px 970px;
     background: transparent;
     display: flex;
     flex-direction: column;
@@ -676,7 +674,6 @@ header {
 }
 
 footer {
-    width: 1440px;
     height: 150px;
     display: flex;
     flex-direction: row;
