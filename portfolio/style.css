@@ -83,6 +83,14 @@ header {
     line-height: 50px;
     text-align: center;
     color: #BDAE82;
+    background: none;
+    height: 22px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
 }
 
 .navigation-container-switch-slash{
@@ -103,6 +111,14 @@ header {
     font-size: 20px;
     text-align: center;
     color: #FFFFFF;
+    background: none;
+    height: 22px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
 }
 
 .hero {
