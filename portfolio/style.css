@@ -557,7 +557,99 @@ header {
 .contacts {
     background: url(assets/img/contacts.jpg);
     background-repeat: no-repeat;
-    background-position: center 0;
+    background-size: auto 700px;
+    background-position: center center;
     width: 1440px;
     height: 700px;
+    display: flex;
+}
+
+.contacts-container {
+    width: 450px;
+    height: 445px;
+    margin: 60px 20px 195px 970px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contacts-container-title {
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 80px;
+    color: #BDAE82;
+    margin-bottom: 40px;
+}
+
+.contacts-container-input-email, .contacts-container-input-phone  {
+    width: 450px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #BDAE82;
+    box-sizing: border-box;
+    border-radius: 0px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    color: #BDAE82;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.contacts-container-input-email::placeholder {
+    font-family: inherit;
+    color: #bdae82;
+    font-size: 20px;
+}
+
+.contacts-container-input-phone::placeholder {
+    font-family: inherit;
+    color: #bdae82;
+    font-size: 20px;
+}
+
+.contacts-container-textarea {
+    resize: none;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #BDAE82;
+    box-sizing: border-box;
+    border-radius: 0px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 33px;
+    color: #BDAE82;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.contacts-container-textarea::placeholder {
+    font-family: inherit;
+    color: #bdae82;
+    font-size: 20px;
+}
+
+.contacts-container-button {
+    width: 220px;
+    height: 55px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    color: #000000;
+    background: #BDAE82;
+    border: none;
+    transition: 0.5s;
+}
+
+.contacts-container-button:hover {
+    cursor: pointer;
+    color: #FFFFFF;
 }
