@@ -25,8 +25,8 @@ header {
 }
 
 .logo {
+    transition: 0.5s;
     margin-left: 20px;
-    transition: 0.3s;
 }
 
 .logo:hover {
@@ -164,7 +164,7 @@ header {
     margin-right: 280px;
     margin-top: 25px;
     cursor:pointer;
-    transition: 0.5s;
+    transition: 0.5s ease-out;
 }
 
 .hero-button:hover{
@@ -324,6 +324,7 @@ header {
 }
 
 .portfolio-buttons-button {
+    transition: 0.5s;
     border: none;
     width: 220px;
     height: 55px;
@@ -331,7 +332,6 @@ header {
     box-sizing: border-box;
     border-radius: 0px;
     border: 2px solid #BDAE82;
-    transition: 0.5s;
     /* Active */
     font-family: Inter;
     font-style: normal;
@@ -427,7 +427,6 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: 0.5s;
     background: none;
     border-radius: 50%;
     overflow: hidden;
@@ -437,6 +436,7 @@ header {
 .video-player-button-image {
     height: 130px;
     width: 130px;
+    transition: 0.5s;
 } 
 
 .video-player-button:hover {
@@ -561,8 +561,8 @@ header {
     background: #BDAE82;
     border-radius: 0px;
     border: none;
-    transition: 0.5s;
     margin: 40px auto 43px auto;
+    transition: 0.5s;
 }
 
 .price-container-item-button:hover{
@@ -668,4 +668,66 @@ header {
 .contacts-container-button:hover {
     cursor: pointer;
     color: #FFFFFF;
+}
+
+footer {
+    width: 1440px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-data {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 50px;
+    color: #FFFFFF;
+    padding-left: 20px;
+    word-spacing: 20px;
+}
+
+.footer-data-link:link, .footer-data-link:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.footer-data-link:hover {
+    color: #BDAE82;
+}
+
+.footer-link, .footer-link:link, .footer-link:visited {
+    text-decoration: none;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 50px;
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #BDAE82;
+}
+
+.footer-social-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 188px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.footer-social-list>a>img:hover {
+    transition: 0.5s;
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
