@@ -11,7 +11,6 @@ body {
     justify-content: space-between;
     background: url(assets/img/bg.jpg);
     background-repeat: no-repeat;
-    background-position: center 0;
     background-color: black;
 }
 
@@ -461,6 +460,7 @@ header {
     text-align: center;
     color: #BDAE82;
     position: relative;
+    margin: 100px 370px 60px 370px;
 }
 
 .price-title::after {
@@ -473,4 +473,91 @@ header {
     top: 50%;
     position: absolute;
     overflow-x: hidden;
+}
+
+.price-container {
+    width: 1400px;
+    height: 505px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px 100px 20px;
+}
+
+.price-container-item {
+    height: 505px;
+    width: 450px;
+    border: 3px solid #BDAE82;
+    box-sizing: border-box;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-container-item-title {
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 56px;
+    color: #FFFFFF;
+    margin: 43px auto 20px auto;
+}
+
+.price-container-item-paragraph {
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 48px;
+    color: #BDAE82;
+    margin: 0 auto 20px auto;
+}
+
+.price-container-item-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price-container-item-list-item {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+
+.price-container-item-button {
+    height: 55px;
+    width: 220px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    color: #000000;
+    background: #BDAE82;
+    border-radius: 0px;
+    border: none;
+    transition: 0.5s;
+    margin: 40px auto 43px auto;
+}
+
+.price-container-item-button:hover{
+    cursor:pointer;
+    color: #FFFFFF;
+}
+
+.contacts {
+    background: url(assets/img/contacts.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0;
+    width: 1440px;
+    height: 700px;
 }
