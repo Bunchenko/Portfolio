@@ -23,13 +23,13 @@ header {
     background-color: transparent;
 }
 
-main {
+/* main {
     display: flex;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
     justify-content: space-between;
-}
+} */
 
 .logo {
     transition: 0.5s;
@@ -134,7 +134,8 @@ main {
 }
 
 .hero {
-    margin: 160px 860px 330px 80px;
+    margin: 160px 0 330px 80px;
+    padding-right: 1000px;
     background-color: transparent;
 
 }
@@ -181,7 +182,6 @@ main {
 }
 
 .skills {
-    height: 482px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -227,7 +227,6 @@ main {
 }
 
 .skills-items{
-    height: 242px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -237,8 +236,6 @@ main {
 
 .skills-items-item {
     width: 320px;
-    height: 240px;
-    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -276,7 +273,6 @@ main {
     color: #FFFFFF;
 }
 .portfolio {
-    height: 1500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -373,10 +369,6 @@ main {
     width: 450px;
 }
 
-.video {
-    height: 945px;
-}
-
 .video-title::before {
     content: "";
     display: block;
@@ -417,15 +409,10 @@ main {
 
 .video-player {
     position: relative;
-    height: 750px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.video-player-image {
-    height: 750px;
-    width: 1400px;
+    overflow: hidden;
 }
 
 .video-player-button {
@@ -452,7 +439,6 @@ main {
 }
 
 .price {
-    height: 845px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -497,7 +483,6 @@ main {
 }
 
 .price-container {
-    height: 505px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -508,7 +493,6 @@ main {
 }
 
 .price-container-item {
-    height: 505px;
     width: 450px;
     border: 3px solid #BDAE82;
     box-sizing: border-box;
@@ -581,12 +565,13 @@ main {
     background-repeat: no-repeat;
     background-size: auto 700px;
     background-position: center center;
-    height: 700px;
     display: flex;
+    padding: 60px 0 195px 0;
 }
 
 .contacts-container {
-    margin: 60px auto 195px 970px;
+    margin-left: auto;
+    margin-right: 90px;
     background: transparent;
     display: flex;
     flex-direction: column;
