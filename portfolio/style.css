@@ -889,9 +889,14 @@ footer {
         background-size: auto 320px;
     }
 
+    .logo {
+        margin-left: 20px;
+    }
+
     .hero {
         margin-top: 20px;
         margin-bottom: 30px;
+        margin-left: 20px;
     }
 
     .hero-title {
@@ -1002,5 +1007,14 @@ footer {
 
     .price-container-item-list-item {
         font-size: 14px;
+    }
+
+    .contacts-container-input-email, .contacts-container-input-phone, 
+    .contacts-container-textarea {
+        width: 200px;
+    }
+
+    .contacts-container-button {
+        width: 200px;
     }
 }
