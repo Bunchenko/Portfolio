@@ -23,14 +23,6 @@ header {
     background-color: transparent;
 }
 
-/* main {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-} */
-
 .logo {
     transition: 0.5s;
     margin-left: 20px;
