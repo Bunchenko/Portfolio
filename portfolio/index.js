@@ -1,6 +1,6 @@
 const burger = document.querySelector('.burger');
 function toggleBurger() {
-    burger.classList.toggle("change");
+    burger.classList.toggle('open');
 };
 burger.addEventListener('click', toggleBurger);
 

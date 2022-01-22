@@ -139,18 +139,16 @@ header {
     transition: 0.4s;
 }
 
-.change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+.open .bar1 {
     transform: rotate(-45deg) translate(-10px, 10px);
     height: 2px;
 }
   
-.change .bar2 {
+.open .bar2 {
     opacity: 0;
 }
   
-.change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+.open .bar3 {
     transform: rotate(45deg) translate(-5px, -7px);
     height: 2px;
 }
