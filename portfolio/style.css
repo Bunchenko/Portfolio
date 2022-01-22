@@ -354,8 +354,8 @@ header {
 }
 
 .portfolio-images-image {
-    height: 560px;
-    width: 450px;
+    max-width: 100%;
+    height: auto;
 }
 
 .video-title::before {
@@ -405,8 +405,8 @@ header {
 }
 
 .video-player-image {
-    max-width:100%;
-    height:auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .video-player-button {
@@ -881,5 +881,126 @@ footer {
     .skills-items {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+@media (max-width: 482px) {
+    body {
+        background-size: auto 320px;
+    }
+
+    .hero {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .hero-title {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .hero-title-paragraph {
+        font-size: 14px;
+    }
+
+    .hero-button {
+        margin-top: 20px;
+        width: 100px;
+        font-size: 14px;
+        height: 40px;
+    }
+
+    .skills-title::before {
+        width: 70px;
+    }
+
+    .skills-title {
+        width: 200px;
+        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .skills-title::after {
+        width: 70px;
+    }
+
+    .skills-items {
+        padding: 0;
+        margin: 0;
+    }
+
+    .skills-items-item {
+        width: 200px;
+    }
+
+    .portfolio-title::before {
+        width: 45px;
+    }
+
+    .portfolio-title {
+        width: 200px;
+        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+
+    .portfolio-title::after {
+        width: 45px;
+    }
+
+    .portfolio-buttons {
+        width: 200px;
+    }
+
+    .portfolio-buttons-button {
+        width: 95px;
+    }
+
+    .video-title::before {
+        width: 60px;
+    }
+
+    .video-title {
+        width: 200px;
+        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+
+    .video-title::after {
+        width: 60px;
+    }
+
+    .price-title::before {
+        width: 60px;
+    }
+
+    .price-title {
+        width: 200px;
+        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+
+    .price-title::after {
+        width: 60px;
+    }
+
+    .price-container-item {
+        width: 200px;
+    }
+
+    .price-container-item-button {
+        width: 140px;
+        margin: 20px auto 20px;
+        font-size: 14px;
+    }
+
+    .price-container-item-list-item {
+        font-size: 14px;
     }
 }
