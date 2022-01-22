@@ -741,6 +741,16 @@ footer {
     contrast(87%);
 }
 
+.navigation-list-mobile {
+    position:  fixed;
+    top: 0;
+    right: 0;
+    background-color: red;
+    display: none;
+    height: 100%;
+    width: 200px;
+}
+
 @media (max-width: 1400px) {
     .price-container{
         flex-direction: column;
@@ -761,9 +771,13 @@ footer {
     .logo {
         margin-left: 60px;
     }
-    .navigation {
+    .navigation-list {
         display: none;
     }
+
+    /* .navigation-list.active  {
+        display: flex;
+    } */
 
     .navigation-container-switch-slash{
         margin: 0 15px;
