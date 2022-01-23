@@ -9,22 +9,26 @@ function toggleBurger() {
 
 function windowResize() {
     if (document.querySelector('html').clientWidth > 768) {
-        navigationMobile.style.display = 'none';
         burger.classList.remove('open');
+        navigationMobile.style.right = '-620px';
     }
 }
 
 function closeModalWindow() {
     if (burger.classList.contains('open')) {
         navigation.classList.add('active');
+        document.querySelector('.navigation-container-switch').style.position = 'fixed';
+        document.querySelector('.navigation-container-switch').style.right = '134px';
     } else {
+        document.querySelector('.navigation-container-switch').style.position = 'static';
         navigation.classList.remove('active');
     }
 
     if (navigation.classList.contains('active')) {
         navigationMobile.style.display = 'flex';
+        navigationMobile.style.right = '0';
     } else {
-        navigationMobile.style.display = 'none';
+        navigationMobile.style.right = '-620px';
     }
 };
 

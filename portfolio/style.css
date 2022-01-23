@@ -135,6 +135,7 @@ header {
     position:  fixed;
     top: 0;
     right: 0;
+    z-index: 101;
     margin-right: 64px;
     margin-top: 20px;
 }
@@ -361,7 +362,7 @@ header {
     box-sizing: border-box;
     border-radius: 0px;
     border: 2px solid #BDAE82;
-    /* Active */
+    
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -369,11 +370,7 @@ header {
     line-height: 40px;
     text-align: center;
     color: #BDAE82;
-    /*Inactive*/
-    /* 
-    color: #BDAE82;
-    background: none;
-    */
+    
 }
 
 .portfolio-buttons-button:hover {
@@ -752,12 +749,14 @@ footer {
 .navigation-list-mobile {
     position:  fixed;
     top: 0;
-    right: 0;
-    background-color: red;
-    display: none;
+    right: -620px;
+    background-color: #000000;
+    z-index: 100;
     flex-direction: column;
     height: 100%;
     width: 620px;
+    list-style-type: none;
+    transition: 0.5s;
 }
 
 @media (max-width: 1400px) {
@@ -790,9 +789,13 @@ footer {
     }
 
     .navigation-list-item-mobile {
-        font-size: 35px;
         line-height: 73px;
-        margin: 16px auto 16px 127px;
+        margin-left: 127px;
+        margin-top: 16px;
+    }
+
+    .navigation-list-item-link:link {
+        font-size: 35px;
     }
 
     .navigation-container-switch-slash{
