@@ -27,8 +27,10 @@ function closeModalWindow() {
     if (navigation.classList.contains('active')) {
         navigationMobile.style.display = 'flex';
         navigationMobile.style.right = '0';
+        document.querySelector('.navigation-shade').style.display = 'block';
     } else {
         navigationMobile.style.right = '-620px';
+        document.querySelector('.navigation-shade').style.display = 'none';
     }
 };
 

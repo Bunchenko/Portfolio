@@ -138,6 +138,7 @@ header {
     z-index: 101;
     margin-right: 64px;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .bar1, .bar2, .bar3 {
@@ -759,6 +760,17 @@ footer {
     transition: 0.5s;
 }
 
+.navigation-shade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
 @media (max-width: 1400px) {
     .price-container{
         flex-direction: column;
@@ -969,8 +981,8 @@ footer {
     }
 
     .burger.open {
-        left: 50%;
-        transform: translate(-25px, 0);
+        right: 50%;
+        transform: translate(25px, 0);
         margin-right: 0;
         margin-left: 0;
     }
