@@ -2,6 +2,19 @@ const burger = document.querySelector('.burger');
 const navigation = document.querySelector('.navigation-list');
 const navigationMobile = document.querySelector('.navigation-list-mobile');
 const navigationMobileItem = document.querySelectorAll('.navigation-list-item-mobile');
+const portfolioButtonsContainer = document.querySelector('.portfolio-buttons');
+const portfolioButtons = document.querySelectorAll('.portfolio-buttons-button');
+const portfolioImages = document.querySelectorAll('.portfolio-images-image');
+
+function preloadImages() {
+    const seasons = ['winter', 'spring', 'summer', 'autumn'];
+    for (item of seasons) {
+        for (let i = 1; i <= 6; i++) {
+            const img = new Image();
+            img.src = `./assets/img/${item}/${i}.jpg`;
+        }
+    }
+}
 
 function toggleBurger() {
     burger.classList.toggle('open');
@@ -34,6 +47,16 @@ function closeModalWindow() {
     }
 };
 
+function changeImage(event) {
+    if (event.target.classList.contains('portfolio-buttons-button')) {
+        portfolioButtons.forEach(button => button.classList.remove('pressed'));
+        event.target.classList.add('pressed');
+        portfolioImages.forEach((image, index) => image.src = `assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
+    }
+};
+
+preloadImages();
+
 navigationMobileItem.forEach(item => item.addEventListener('click', () => {
     burger.classList.remove('open')
 }));
@@ -46,5 +69,9 @@ burger.addEventListener('click', closeModalWindow);
 
 window.addEventListener('resize', windowResize);
 
+portfolioButtonsContainer.addEventListener('click', changeImage);
 
-console.log('Вёрстка соответствует макету +48\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки + 15\nНа ширине экрана 768рх и меньше реализовано адаптивное меню +22\nИтого 85')
+
+
+
+// console.log('Вёрстка соответствует макету +48\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки + 15\nНа ширине экрана 768рх и меньше реализовано адаптивное меню +22\nИтого 85')

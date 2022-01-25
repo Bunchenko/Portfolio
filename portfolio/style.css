@@ -374,6 +374,11 @@ header {
     
 }
 
+.portfolio-buttons-button.pressed {
+    color: #000;
+    background-color: #bdae82;
+}
+
 .portfolio-buttons-button:hover {
     cursor: pointer;
     color: #FFFFFF;
