@@ -86,7 +86,7 @@ header {
     font-size: 20px;
     line-height: 50px;
     text-align: center;
-    color: #BDAE82;
+    color: #FFFFFF;
     background: none;
     height: 22px;
     border: none;
@@ -95,6 +95,10 @@ header {
     flex-direction: row;
     align-items: center;
     overflow: hidden;
+}
+
+.navigation-container-switch-en.current {
+    color: #BDAE82;
 }
 
 .navigation-container-switch-slash{
@@ -123,6 +127,10 @@ header {
     flex-direction: row;
     align-items: center;
     overflow: hidden;
+}
+
+.navigation-container-switch-ru.current {
+    color: #BDAE82;
 }
 
 .burger {
