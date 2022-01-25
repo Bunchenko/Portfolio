@@ -257,7 +257,8 @@ header {
 .skills-items{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 40px;
     margin-left: 20px;
@@ -349,7 +350,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 5px;
 }
