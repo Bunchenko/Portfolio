@@ -139,6 +139,18 @@ header {
     cursor: pointer;
 }
 
+.burger:hover > .bar1{
+    background-color: #BDAE82;
+}
+
+.burger:hover > .bar2{
+    background-color: #BDAE82;
+}
+
+.burger:hover > .bar3{
+    background-color: #BDAE82;
+}
+
 .burger.open {
     position:  fixed;
     top: 0;
