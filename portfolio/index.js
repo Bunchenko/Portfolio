@@ -9,6 +9,8 @@ const portfolioButtons = document.querySelectorAll('.portfolio-buttons-button');
 const portfolioImages = document.querySelectorAll('.portfolio-images-image');
 const englishButton = document.querySelector('.navigation-container-switch-en');
 const russianButton = document.querySelector('.navigation-container-switch-ru');
+const darkThemeElements = document.querySelectorAll('[data-theme]');
+const themeButton = document.querySelector('.theme-changer');
 
 function preloadImages() {
     const seasons = ['winter', 'spring', 'summer', 'autumn'];
@@ -24,10 +26,10 @@ function getTranslate(language) {
     let translateElements = document.querySelectorAll('[data-i18n]');
     translateElements.forEach(element => {
         // if (element.dataset in i18Obj) {
-            // if (element.placeholder) {
-            //     element.placeholder = 
-            //     element.textContent = ''
-            // }
+            if (element.placeholder) {
+            // element.placeholder = ''
+                element.value = ''
+            }
             element.textContent = i18Obj[language][element.dataset.i18n]
         // }
     })
@@ -48,9 +50,17 @@ function closeModalWindow() {
     if (burger.classList.contains('open')) {
         navigation.classList.add('active');
         document.querySelector('.navigation-container-switch').style.position = 'fixed';
-        document.querySelector('.navigation-container-switch').style.right = '134px';
+        themeButton.style.position = 'fixed';
+        if (document.querySelector('html').clientWidth <= 482) {
+            document.querySelector('.navigation-container-switch').style.right = '150px';
+            themeButton.style.right = '88px';
+        } else {
+            document.querySelector('.navigation-container-switch').style.right = '209px';
+            themeButton.style.right = '134px';
+        }
     } else {
         document.querySelector('.navigation-container-switch').style.position = 'static';
+        themeButton.style.position = 'static';
         navigation.classList.remove('active');
     }
 
@@ -71,6 +81,20 @@ function changeImage(event) {
         portfolioImages.forEach((image, index) => image.src = `assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
     }
 };
+
+function changeTheme() {
+    if (themeButton.classList.contains('dark')) {
+        document.querySelector('.theme-icon').src = 'assets/svg/toDark.svg';
+    } else {
+        document.querySelector('.theme-icon').src = 'assets/svg/toLight.svg';
+    }
+    darkThemeElements.forEach(element => {
+        element.classList.toggle('dark');
+        if (element.placeholder) {
+            element.value = ''
+        }
+    });
+}
 
 preloadImages();
 
@@ -99,5 +123,7 @@ burger.addEventListener('click', closeModalWindow);
 window.addEventListener('resize', windowResize);
 
 portfolioButtonsContainer.addEventListener('click', changeImage);
+
+themeButton.addEventListener('click', changeTheme);
 
 // console.log('Вёрстка соответствует макету +48\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки + 15\nНа ширине экрана 768рх и меньше реализовано адаптивное меню +22\nИтого 85')
