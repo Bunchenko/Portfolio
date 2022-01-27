@@ -240,7 +240,7 @@ header {
 .skills-title::before {
     content: "";
     display: block;
-    width: 274px;
+    width: 268px;
     height: 2px;
     background: #BDAE82;
     left: 0;
@@ -265,7 +265,7 @@ header {
 .skills-title::after {
     content: "";
     display: block;
-    width: 274px;
+    width: 268px;
     height: 2px;
     background: #BDAE82;
     right: 0;
@@ -331,7 +331,7 @@ header {
 .portfolio-title::before {
     content: "";
     display: block;
-    width: 238px;
+    width: 225px;
     height: 2px;
     background: #BDAE82;
     left: 0;
@@ -356,7 +356,7 @@ header {
 .portfolio-title::after {
     content: "";
     display: block;
-    width: 241px;
+    width: 220px;
     height: 2px;
     background: #BDAE82;
     right: 0;
