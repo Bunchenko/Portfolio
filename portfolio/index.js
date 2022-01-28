@@ -165,5 +165,3 @@ window.addEventListener('resize', windowResize);
 portfolioButtonsContainer.addEventListener('click', changeImage);
 
 themeButton.addEventListener('click', changeTheme);
-
-// console.log('Вёрстка соответствует макету +48\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки + 15\nНа ширине экрана 768рх и меньше реализовано адаптивное меню +22\nИтого 85')
