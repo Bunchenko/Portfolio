@@ -1,15 +1,31 @@
 import i18Obj from './translate.js';
 
 const burger = document.querySelector('.burger');
-const navigation = document.querySelector('.navigation-list');
 const navigationMobile = document.querySelector('.navigation-list-mobile');
 const navigationMobileItem = document.querySelectorAll('.navigation-list-item-mobile');
 const portfolioButtonsContainer = document.querySelector('.portfolio-buttons');
-const portfolioButtons = document.querySelectorAll('.portfolio-buttons-button');
-const portfolioImages = document.querySelectorAll('.portfolio-images-image');
 const englishButton = document.querySelector('.navigation-container-switch-en');
 const russianButton = document.querySelector('.navigation-container-switch-ru');
 const themeButton = document.querySelector('.theme-changer');
+
+// let lang = 'en';
+// let theme = 'dark';
+
+// function setLocalStorage() {
+//     localStorage.setItem('lang', lang);
+//     localStorage.setItem('theme', theme);
+// }
+
+// function getLocalStorage() {
+//     if(localStorage.getItem('lang')) {
+//       const lang = localStorage.getItem('lang');
+//       getTranslate(lang);
+//     }
+//     if(localStorage.getItem('theme')) {
+//         const theme = localStorage.getItem('theme');
+//         getTranslate(theme);
+//       }
+// }
 
 function preloadImages() {
     const seasons = ['winter', 'spring', 'summer', 'autumn'];
@@ -23,14 +39,17 @@ function preloadImages() {
 
 function getTranslate(language) {
     let translateElements = document.querySelectorAll('[data-i18n]');
+    // if (englishButton.classList.contains('current')) {
+    //     lang = 'en';
+    // } else {
+    //     lang = 'ru';
+    // }
     translateElements.forEach(element => {
-        // if (element.dataset in i18Obj) {
             if (element.placeholder) {
             // element.placeholder = ''
                 element.value = ''
             }
-            element.textContent = i18Obj[language][element.dataset.i18n]
-        // }
+            element.textContent = i18Obj[language][element.dataset.i18n];
     })
 }
 
@@ -46,6 +65,7 @@ function windowResize() {
 }
 
 function closeModalWindow() {
+    const navigation = document.querySelector('.navigation-list');
     if (burger.classList.contains('open')) {
         navigation.classList.add('active');
         document.querySelector('.navigation-container-switch').style.position = 'fixed';
@@ -74,6 +94,8 @@ function closeModalWindow() {
 };
 
 function changeImage(event) {
+    const portfolioImages = document.querySelectorAll('.portfolio-images-image');
+    const portfolioButtons = document.querySelectorAll('.portfolio-buttons-button');
     if (event.target.classList.contains('portfolio-buttons-button')) {
         portfolioButtons.forEach(button => button.classList.remove('pressed'));
         event.target.classList.add('pressed');
@@ -92,6 +114,7 @@ function changeTheme() {
     });
 
     if (themeButton.classList.contains('dark')) {
+        // theme = 'light';
         document.querySelector('.theme-icon').src = 'assets/svg/toDark.svg';
         document.querySelector('.logo').src = 'assets/svg/logo-dark.svg';
         socialListIcons[0].src = 'assets/svg/Vector-dark.svg';
@@ -99,6 +122,7 @@ function changeTheme() {
         socialListIcons[2].src = 'assets/svg/Vector-dark-2.svg';
         socialListIcons[3].src = 'assets/svg/Vector-dark-3.svg';
     } else {
+        // theme = 'dark';
         document.querySelector('.theme-icon').src = 'assets/svg/toLight.svg';
         document.querySelector('.logo').src = 'assets/img/logo.png';
         socialListIcons[0].src = 'assets/svg/Vector.svg';
@@ -109,6 +133,10 @@ function changeTheme() {
 }
 
 preloadImages();
+
+// window.addEventListener('beforeunload', setLocalStorage);
+
+// window.addEventListener('load', getLocalStorage);
 
 englishButton.addEventListener('click', () => {
     russianButton.classList.remove('current');
