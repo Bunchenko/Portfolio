@@ -286,6 +286,10 @@ header {
     overflow-x: hidden;
 }
 
+.skills-title.dark::before {
+    background: #000000;
+} 
+
 .skills-title {
     width: 700px;
     margin: 100px auto 60px auto;
@@ -310,6 +314,10 @@ header {
     position: absolute;
     overflow-x: hidden;
 }
+
+.skills-title.dark::after {
+    background: #000000;
+} 
 
 .skills-items{
     display: flex;
@@ -377,6 +385,10 @@ header {
     overflow-x: hidden;
 }
 
+.portfolio-title.dark::before {
+    background: #000000;
+} 
+
 .portfolio-title {
     margin: 100px auto 60px auto;
     width: 700px;
@@ -401,6 +413,10 @@ header {
     position: absolute;
     overflow-x: hidden;
 }
+
+.portfolio-title.dark::after {
+    background: #000000;
+} 
 
 .portfolio-buttons {
     margin: 0 auto 60px auto;
@@ -476,6 +492,10 @@ header {
     overflow-x: hidden;
 }
 
+.video-title.dark::before {
+    background: #000000;
+} 
+
 .video-title {
     margin: 100px auto 60px auto;
     width: 700px;
@@ -500,6 +520,10 @@ header {
     top: 50%;
     position: absolute;
     overflow-x: hidden;
+}
+
+.video-title.dark::after {
+    background: #000000;
 }
 
 .video-player {
@@ -556,6 +580,10 @@ header {
     overflow-x: hidden;
 }
 
+.price-title.dark::before {
+    background: #000000;
+}
+
 .price-title {
     width: 700px;
     height: 80px;
@@ -580,6 +608,10 @@ header {
     top: 50%;
     position: absolute;
     overflow-x: hidden;
+}
+
+.price-title.dark::after {
+    background: #000000;
 }
 
 .price-container {
@@ -890,7 +922,12 @@ footer {
     }
 
     .skills.dark {
-        background-size:contain;
+        background-size: contain;
+    }
+
+    .contacts.dark {
+        background-size: 100% 700px;
+        background-position: unset;
     }
 }
 
@@ -899,7 +936,7 @@ footer {
         background-size: 1440px auto;
     }
 
-    .skills.dark {
+    .contacts.dark {
         background-size: auto 700px;
     }
 
@@ -1080,6 +1117,10 @@ footer {
     .contacts {
         justify-content: center;
         padding-bottom: 111px;
+    }
+
+    .contacts.dark {
+        background-position: center center;
     }
 
     .contacts-container {
