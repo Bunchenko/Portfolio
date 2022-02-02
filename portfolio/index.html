@@ -179,7 +179,18 @@
                     <img src="assets/svg/Play_hover.svg" alt="play button" class="video-player-button-image">
                 </button>
 
-                
+                <video src="assets/video/video.mp4" class="video-player-video"></video>
+
+                <div class="video-player-controls">
+                    <button class="video-player-controls-play-button">
+                        <img src="assets/svg/play.svg" alt="play button" class="video-player-controls-play-button-image">
+                    </button>
+                    <input type="range" name="progress" min="0" max="100" step="1" value="0" class="video-player-controls-playback">
+                    <button class="video-player-controls-volume-button">
+                        <img src="assets/svg/volume.svg" alt="volume image">
+                    </button>
+                    <input type="range" name="volume" min="0" max="1" step="0.01" value="0.01" class="video-player-controls-volume">
+                </div>
             </div>
         </section>
 

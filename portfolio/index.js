@@ -165,3 +165,13 @@ window.addEventListener('resize', windowResize);
 portfolioButtonsContainer.addEventListener('click', changeImage);
 
 themeButton.addEventListener('click', changeTheme);
+
+document.querySelector('.video-player-controls-playback').oninput = function() {
+    var value = (this.value-this.min)/(this.max-this.min)*100
+    this.style.background = 'linear-gradient(to right, #BDAE82 0%, #BDAE82 ' + value + '%, rgb(200, 200, 200)' + value + '%, rgb(200, 200, 200) 100%)'
+};
+
+document.querySelector('.video-player-controls-volume').oninput = function() {
+    var value = (this.value-this.min)/(this.max-this.min)*100
+    this.style.background = 'linear-gradient(to right, #BDAE82 0%, #BDAE82 ' + value + '%, rgb(200, 200, 200)' + value + '%, rgb(200, 200, 200) 100%)'
+};
