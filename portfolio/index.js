@@ -8,6 +8,15 @@ const englishButton = document.querySelector('.navigation-container-switch-en');
 const russianButton = document.querySelector('.navigation-container-switch-ru');
 const themeButton = document.querySelector('.theme-changer');
 
+const player = document.querySelector('.video-player');
+const video = player.querySelector('.viewer');
+const bigPlayButton = document.querySelector('.video-player-button');
+const smallPlayButton = document.querySelector('.video-player-controls-play-button');
+const progressBar = document.querySelector('.video-player-controls-playback');
+const volumeButton = document.querySelector('.video-player-controls-volume-button');
+const volumeRange = document.querySelector('.video-player-controls-volume');
+
+
 // let lang = 'en';
 // let theme = 'dark';
 
@@ -26,6 +35,79 @@ const themeButton = document.querySelector('.theme-changer');
 //         getTranslate(theme);
 //       }
 // }
+
+function togglePlay() {
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
+}
+
+function toggleSmallPlayButton(status) {
+    if (this.paused) {
+        smallPlayButton.querySelector('img').src = `assets/svg/play.svg`
+    } else {
+        smallPlayButton.querySelector('img').src = `assets/svg/pause.svg`;
+    }
+}
+
+function toggleBigPlayButton() {
+    if (this.paused) {
+        bigPlayButton.style.display = 'block';
+    } else {
+        bigPlayButton.style.display = 'none';
+    }
+}
+
+// function playbackProgress() {
+//     const percent = (video.currentTime / video.duration) * 100;
+//     progressBar.value = `${percent}`;
+// }
+
+function toggleVolume() {
+    volumeButton.classList.toggle('muted');
+    if (volumeButton.classList.contains('muted')) {
+        volumeButton.querySelector('img').src = 'assets/svg/mute.svg';
+        video.volume = 0;
+    } else {
+        volumeButton.querySelector('img').src = 'assets/svg/volume.svg';
+        video.volume = volumeRange.value;
+    }
+    // if (volumeButton.classList.contains('muted') && video.volume === 0) {
+    //     video.volume = 0.01
+    // }
+}
+
+function toggleVolumeButton() {
+    if (video.volume === 0) {
+        volumeButton.querySelector('img').src = 'assets/svg/mute.svg';
+    } else {
+        volumeButton.querySelector('img').src = 'assets/svg/volume.svg';
+    }
+}
+
+function volumeRangeUpdate() {
+    video.volume = this.value
+}
+
+bigPlayButton.addEventListener('click', togglePlay);
+smallPlayButton.addEventListener('click', togglePlay);
+video.addEventListener('play', toggleSmallPlayButton);
+video.addEventListener('play', toggleBigPlayButton);
+video.addEventListener('pause', toggleSmallPlayButton);
+video.addEventListener('pause', toggleBigPlayButton);
+video.addEventListener('click', togglePlay);
+// video.addEventListener('progress', playbackProgress)
+// progressBar.addEventListener('change', playbackProgress);
+volumeRange.addEventListener('change', volumeRangeUpdate);
+volumeRange.addEventListener('input', volumeRangeUpdate);
+volumeRange.addEventListener('change', toggleVolumeButton);
+volumeRange.addEventListener('input', toggleVolumeButton);
+volumeButton.addEventListener('click', toggleVolume)
+window.addEventListener('load', () => {video.volume = '0.01'});
+
+
 
 function preloadImages() {
     const seasons = ['winter', 'spring', 'summer', 'autumn'];

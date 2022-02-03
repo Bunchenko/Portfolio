@@ -557,6 +557,11 @@ header {
     overflow: hidden;
 }
 
+.video-player-controls-play-button:hover, .video-player-controls-volume-button:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
 .video-player-controls-play-button > img, .video-player-controls-volume-button > img {
     line-height: 1;
     height: 30px;
@@ -571,11 +576,11 @@ header {
     width: 100%;
 }
 
-input[type=range], .video-player-controls-playback {
+input[type=range] {
     -webkit-appearance: none;
     background:transparent;
     margin: 10px 0;
-    background: linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) 0%, rgb(200, 200, 200) 0%, rgb(200, 200, 200) 100%);
+    background: linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) 1%, rgb(200, 200, 200) 1%, rgb(200, 200, 200) 100%);
 }
 
 input[type=range]:focus {
