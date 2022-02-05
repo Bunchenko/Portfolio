@@ -60,10 +60,10 @@ function toggleBigPlayButton() {
     }
 }
 
-// function playbackProgress() {
-//     const percent = (video.currentTime / video.duration) * 100;
-//     progressBar.value = `${percent}`;
-// }
+function playbackProgress() {
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.value = `${percent}`;
+}
 
 function toggleVolume() {
     volumeButton.classList.toggle('muted');
@@ -74,9 +74,6 @@ function toggleVolume() {
         volumeButton.querySelector('img').src = 'assets/svg/volume.svg';
         video.volume = volumeRange.value;
     }
-    // if (volumeButton.classList.contains('muted') && video.volume === 0) {
-    //     video.volume = 0.01
-    // }
 }
 
 function toggleVolumeButton() {
@@ -91,6 +88,15 @@ function volumeRangeUpdate() {
     video.volume = this.value
 }
 
+function progressBarBackgroundChange() {
+    var value = (progressBar.value-progressBar.min)/(progressBar.max-progressBar.min)*100
+    progressBar.style.background = 'linear-gradient(to right, #BDAE82 0%, #BDAE82 '
+     + value 
+     + '%, rgb(200, 200, 200)' 
+     + value 
+     + '%, rgb(200, 200, 200) 100%)'
+};
+
 bigPlayButton.addEventListener('click', togglePlay);
 smallPlayButton.addEventListener('click', togglePlay);
 video.addEventListener('play', toggleSmallPlayButton);
@@ -98,16 +104,15 @@ video.addEventListener('play', toggleBigPlayButton);
 video.addEventListener('pause', toggleSmallPlayButton);
 video.addEventListener('pause', toggleBigPlayButton);
 video.addEventListener('click', togglePlay);
-// video.addEventListener('progress', playbackProgress)
-// progressBar.addEventListener('change', playbackProgress);
+video.addEventListener('timeupdate', playbackProgress);
+video.addEventListener('timeupdate', progressBarBackgroundChange);
+
 volumeRange.addEventListener('change', volumeRangeUpdate);
 volumeRange.addEventListener('input', volumeRangeUpdate);
 volumeRange.addEventListener('change', toggleVolumeButton);
 volumeRange.addEventListener('input', toggleVolumeButton);
-volumeButton.addEventListener('click', toggleVolume)
+volumeButton.addEventListener('click', toggleVolume);
 window.addEventListener('load', () => {video.volume = '0.01'});
-
-
 
 function preloadImages() {
     const seasons = ['winter', 'spring', 'summer', 'autumn'];
@@ -248,12 +253,20 @@ portfolioButtonsContainer.addEventListener('click', changeImage);
 
 themeButton.addEventListener('click', changeTheme);
 
-document.querySelector('.video-player-controls-playback').oninput = function() {
+progressBar.oninput = function() {
     var value = (this.value-this.min)/(this.max-this.min)*100
-    this.style.background = 'linear-gradient(to right, #BDAE82 0%, #BDAE82 ' + value + '%, rgb(200, 200, 200)' + value + '%, rgb(200, 200, 200) 100%)'
+    this.style.background = 'linear-gradient(to right, #BDAE82 0%, #BDAE82 ' 
+    + value 
+    + '%, rgb(200, 200, 200)' 
+    + value 
+    + '%, rgb(200, 200, 200) 100%)'
 };
 
-document.querySelector('.video-player-controls-volume').oninput = function() {
+volumeRange.oninput = function() {
     var value = (this.value-this.min)/(this.max-this.min)*100
-    this.style.background = 'linear-gradient(to right, #BDAE82 0%, #BDAE82 ' + value + '%, rgb(200, 200, 200)' + value + '%, rgb(200, 200, 200) 100%)'
+    this.style.background = 'linear-gradient(to right, #BDAE82 0%, #BDAE82 ' 
+    + value 
+    + '%, rgb(200, 200, 200)' 
+    + value 
+    + '%, rgb(200, 200, 200) 100%)'
 };
