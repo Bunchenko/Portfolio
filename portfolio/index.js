@@ -17,24 +17,11 @@ const volumeButton = document.querySelector('.video-player-controls-volume-butto
 const volumeRange = document.querySelector('.video-player-controls-volume');
 
 let progressBarMousedownFlag = false;
-// let lang = 'en';
-// let theme = 'dark';
 
-// function setLocalStorage() {
-//     localStorage.setItem('lang', lang);
-//     localStorage.setItem('theme', theme);
-// }
-
-// function getLocalStorage() {
-//     if(localStorage.getItem('lang')) {
-//       const lang = localStorage.getItem('lang');
-//       getTranslate(lang);
-//     }
-//     if(localStorage.getItem('theme')) {
-//         const theme = localStorage.getItem('theme');
-//         getTranslate(theme);
-//       }
-// }
+function getLocalStorage() {
+    getTranslate();
+    loadTheme();
+}
 
 function togglePlay() {
     if (video.paused) {
@@ -44,7 +31,7 @@ function togglePlay() {
     }
 }
 
-function toggleSmallPlayButton(status) {
+function toggleSmallPlayButton() {
     if (this.paused) {
         smallPlayButton.querySelector('img').src = `assets/svg/play.svg`
     } else {
@@ -98,8 +85,14 @@ function progressBarBackgroundChange() {
 };
 
 function scrub(event) {
-    const scrubTime = (event.offsetX / progressBar.offsetWidth) * video.duration;
-    video.currentTime = scrubTime;
+    if (event instanceof TouchEvent) {
+        const scrubTime = ((event.touches[0].pageX - progressBar.getBoundingClientRect().left) / progressBar.offsetWidth) * video.duration;
+        video.currentTime = scrubTime;
+    } else {
+        const scrubTime = (event.offsetX / progressBar.offsetWidth) * video.duration;
+        video.currentTime = scrubTime;
+    }
+
 }
 
 function preloadImages() {
@@ -112,13 +105,16 @@ function preloadImages() {
     }
 }
 
-function getTranslate(language) {
+function getTranslate() {
+    if (!localStorage.getItem('lang')) {
+        localStorage.setItem('lang', 'en')
+    }
+
+    const language = localStorage.getItem('lang');
     let translateElements = document.querySelectorAll('[data-i18n]');
-    // if (englishButton.classList.contains('current')) {
-    //     lang = 'en';
-    // } else {
-    //     lang = 'ru';
-    // }
+
+
+
     translateElements.forEach(element => {
             if (element.placeholder) {
             // element.placeholder = ''
@@ -179,50 +175,70 @@ function changeImage(event) {
 };
 
 function changeTheme() {
+
+    if (localStorage.getItem('theme') === 'dark') {
+        localStorage.setItem('theme', 'light');
+    } else
+    if (localStorage.getItem('theme') === 'light') {
+        localStorage.setItem('theme', 'dark');
+    } 
+}
+
+function loadTheme() {
+    if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'dark')
+    }
+    const currentTheme = localStorage.getItem('theme');
     const darkThemeElements = document.querySelectorAll('[data-theme]');
     const socialListIcons = document.querySelectorAll('.footer-social-list-icon');
-    darkThemeElements.forEach(element => {
-        element.classList.toggle('dark');
-        if (element.placeholder) {
-            element.value = ''
-        }
-    });
+    
 
-    if (themeButton.classList.contains('dark')) {
-        // theme = 'light';
-        document.querySelector('.theme-icon').src = 'assets/svg/toDark.svg';
-        document.querySelector('.logo').src = 'assets/svg/logo-dark.svg';
-        socialListIcons[0].src = 'assets/svg/Vector-dark.svg';
-        socialListIcons[1].src = 'assets/svg/Vector-dark-1.svg';
-        socialListIcons[2].src = 'assets/svg/Vector-dark-2.svg';
-        socialListIcons[3].src = 'assets/svg/Vector-dark-3.svg';
-    } else {
-        // theme = 'dark';
+    if (currentTheme === 'dark') {
+        darkThemeElements.forEach(element => {
+            element.classList.remove('dark');
+            if (element.placeholder) {
+                element.value = ''
+            }
+        });
         document.querySelector('.theme-icon').src = 'assets/svg/toLight.svg';
         document.querySelector('.logo').src = 'assets/img/logo.png';
         socialListIcons[0].src = 'assets/svg/Vector.svg';
         socialListIcons[1].src = 'assets/svg/Vector-1.svg';
         socialListIcons[2].src = 'assets/svg/Vector-2.svg';
         socialListIcons[3].src = 'assets/svg/Vector-3.svg';
+    } else {
+        darkThemeElements.forEach(element => {
+            element.classList.add('dark');
+            if (element.placeholder) {
+                element.value = ''
+            }
+        });
+        document.querySelector('.theme-icon').src = 'assets/svg/toDark.svg';
+        document.querySelector('.logo').src = 'assets/svg/logo-dark.svg';
+        socialListIcons[0].src = 'assets/svg/Vector-dark.svg';
+        socialListIcons[1].src = 'assets/svg/Vector-dark-1.svg';
+        socialListIcons[2].src = 'assets/svg/Vector-dark-2.svg';
+        socialListIcons[3].src = 'assets/svg/Vector-dark-3.svg';
+        
     }
 }
 
 preloadImages();
 
-// window.addEventListener('beforeunload', setLocalStorage);
-
-// window.addEventListener('load', getLocalStorage);
+window.addEventListener('load', getLocalStorage);
 
 englishButton.addEventListener('click', () => {
     russianButton.classList.remove('current');
     englishButton.classList.add('current');
-    getTranslate('en');
+    localStorage.setItem('lang', 'en');
+    getTranslate();
 });
 
 russianButton.addEventListener('click', () => {
     englishButton.classList.remove('current');
     russianButton.classList.add('current');
-    getTranslate('ru');
+    localStorage.setItem('lang', 'ru');
+    getTranslate();
 });
 
 navigationMobileItem.forEach(item => item.addEventListener('click', () => {
@@ -239,7 +255,11 @@ window.addEventListener('resize', windowResize);
 
 portfolioButtonsContainer.addEventListener('click', changeImage);
 
-themeButton.addEventListener('click', changeTheme);
+themeButton.addEventListener('click', () => {
+    changeTheme();
+    loadTheme();
+});
+
 
 bigPlayButton.addEventListener('click', togglePlay);
 smallPlayButton.addEventListener('click', togglePlay);
@@ -250,15 +270,27 @@ video.addEventListener('pause', toggleBigPlayButton);
 video.addEventListener('click', togglePlay);
 video.addEventListener('timeupdate', playbackProgress);
 video.addEventListener('timeupdate', progressBarBackgroundChange);
-progressBar.addEventListener('click', scrub);
 
-progressBar.addEventListener('mousemove', (e) => {
+
+//Mobile
+progressBar.addEventListener('touchmove', (e) => {
     if (progressBarMousedownFlag) {
         scrub(e);
     }
 });
-progressBar.addEventListener('mousedown', () => progressBarMousedownFlag = true);
-progressBar.addEventListener('mouseup', () => progressBarMousedownFlag = false);
+progressBar.addEventListener('touchstart', () => progressBarMousedownFlag = true);
+progressBar.addEventListener('touchend', () => progressBarMousedownFlag = false);
+
+//Desktop
+progressBar.addEventListener('pointerdown', scrub);
+
+progressBar.addEventListener('pointermove', (e) => {
+    if (progressBarMousedownFlag) {
+        scrub(e);
+    }
+});
+progressBar.addEventListener('pointerdown', () => progressBarMousedownFlag = true);
+progressBar.addEventListener('pointerup', () => progressBarMousedownFlag = false);
 
 volumeRange.addEventListener('change', volumeRangeUpdate);
 volumeRange.addEventListener('input', volumeRangeUpdate);
