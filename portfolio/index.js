@@ -16,7 +16,7 @@ const progressBar = document.querySelector('.video-player-controls-playback');
 const volumeButton = document.querySelector('.video-player-controls-volume-button');
 const volumeRange = document.querySelector('.video-player-controls-volume');
 
-
+let progressBarMousedownFlag = false;
 // let lang = 'en';
 // let theme = 'dark';
 
@@ -97,22 +97,12 @@ function progressBarBackgroundChange() {
      + '%, rgb(200, 200, 200) 100%)'
 };
 
-bigPlayButton.addEventListener('click', togglePlay);
-smallPlayButton.addEventListener('click', togglePlay);
-video.addEventListener('play', toggleSmallPlayButton);
-video.addEventListener('play', toggleBigPlayButton);
-video.addEventListener('pause', toggleSmallPlayButton);
-video.addEventListener('pause', toggleBigPlayButton);
-video.addEventListener('click', togglePlay);
-video.addEventListener('timeupdate', playbackProgress);
-video.addEventListener('timeupdate', progressBarBackgroundChange);
-
-volumeRange.addEventListener('change', volumeRangeUpdate);
-volumeRange.addEventListener('input', volumeRangeUpdate);
-volumeRange.addEventListener('change', toggleVolumeButton);
-volumeRange.addEventListener('input', toggleVolumeButton);
-volumeButton.addEventListener('click', toggleVolume);
-window.addEventListener('load', () => {video.volume = '0.01'});
+function scrub(event) {
+    const scrubTime = (event.offsetX / progressBar.offsetWidth) * video.duration;
+    console.log(event.offsetX)
+    console.log(scrubTime);
+    video.currentTime = scrubTime;
+}
 
 function preloadImages() {
     const seasons = ['winter', 'spring', 'summer', 'autumn'];
@@ -252,6 +242,32 @@ window.addEventListener('resize', windowResize);
 portfolioButtonsContainer.addEventListener('click', changeImage);
 
 themeButton.addEventListener('click', changeTheme);
+
+bigPlayButton.addEventListener('click', togglePlay);
+smallPlayButton.addEventListener('click', togglePlay);
+video.addEventListener('play', toggleSmallPlayButton);
+video.addEventListener('play', toggleBigPlayButton);
+video.addEventListener('pause', toggleSmallPlayButton);
+video.addEventListener('pause', toggleBigPlayButton);
+video.addEventListener('click', togglePlay);
+video.addEventListener('timeupdate', playbackProgress);
+video.addEventListener('timeupdate', progressBarBackgroundChange);
+progressBar.addEventListener('click', scrub);
+
+progressBar.addEventListener('mousemove', (e) => {
+    if (progressBarMousedownFlag) {
+        scrub(e);
+    }
+});
+progressBar.addEventListener('mousedown', () => progressBarMousedownFlag = true);
+progressBar.addEventListener('mouseup', () => progressBarMousedownFlag = false);
+
+volumeRange.addEventListener('change', volumeRangeUpdate);
+volumeRange.addEventListener('input', volumeRangeUpdate);
+volumeRange.addEventListener('change', toggleVolumeButton);
+volumeRange.addEventListener('input', toggleVolumeButton);
+volumeButton.addEventListener('click', toggleVolume);
+window.addEventListener('load', () => {video.volume = '0.01'});
 
 progressBar.oninput = function() {
     var value = (this.value-this.min)/(this.max-this.min)*100
