@@ -99,8 +99,6 @@ function progressBarBackgroundChange() {
 
 function scrub(event) {
     const scrubTime = (event.offsetX / progressBar.offsetWidth) * video.duration;
-    console.log(event.offsetX)
-    console.log(scrubTime);
     video.currentTime = scrubTime;
 }
 
