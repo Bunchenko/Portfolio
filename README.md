@@ -1,5 +1,5 @@
 # First major project of mine
-*(Made only by myself)*
+*(Made only by myself!!)*
 ## Stack
 - HTML5
 - CSS3
