@@ -361,6 +361,7 @@ header {
     line-height: 36px;
     text-align: center;
     color: #FFFFFF;
+    min-height: 108px;
 }
 
 .skills-items-item-title {
@@ -1308,7 +1309,7 @@ footer {
     }
 
     .skills-title::before {
-        width: 70px;
+        width: 60px;
     }
 
     .skills-title {
@@ -1319,7 +1320,7 @@ footer {
     }
 
     .skills-title::after {
-        width: 70px;
+        width: 60px;
     }
 
     .skills-items {
@@ -1329,6 +1330,11 @@ footer {
 
     .skills-items-item {
         width: 200px;
+    }
+
+
+    .portfolio-images-image {
+        padding: 0 20px;
     }
 
     .portfolio-title::before {
@@ -1410,6 +1416,10 @@ footer {
 
     .price-container-item-list-item {
         font-size: 14px;
+    }
+
+    .contacts-container-title {
+        font-size: 30px;
     }
 
     .contacts-container-input-email, .contacts-container-input-phone, 
